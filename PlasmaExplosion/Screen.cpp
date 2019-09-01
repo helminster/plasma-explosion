@@ -4,7 +4,7 @@
 using namespace std;
 
 namespace ssk {
-	Screen::Screen(): m_window(NULL), m_renderer(NULL), m_texture(NULL), m_buffer(NULL)
+	Screen::Screen() : m_window(NULL), m_renderer(NULL), m_texture(NULL), m_buffer(NULL)
 	{
 	}
 
@@ -55,7 +55,7 @@ namespace ssk {
 		memset(m_buffer, 0x00, SCREEN_HEIGHT * SCREEN_WIDTH * sizeof(Uint32));
 
 		for (int i = 0; i < SCREEN_HEIGHT * SCREEN_WIDTH; i++) {
-			m_buffer[i] = 0xFF8080FF;
+			m_buffer[i] = 0x00;
 		}
 
 		return true;
@@ -75,6 +75,10 @@ namespace ssk {
 
 	void Screen::setPixel(int x, int y, Uint8 red, Uint8 green, Uint8 blue)
 	{
+		if (x < 0 || x >= SCREEN_WIDTH || y < 0 || y >= SCREEN_HEIGHT) {
+			return;
+		}
+
 		Uint32 color = 0;
 
 		color += red;
