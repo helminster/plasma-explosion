@@ -2,6 +2,7 @@
 #include <SDL.h>
 #include <math.h>
 #include "Screen.h"
+#include <stdlib.h>
 #include <time.h>
 #include "Swarm.h"
 
@@ -23,6 +24,7 @@ int main(int argc, char *args[]) {
 		int elapsed = SDL_GetTicks();
 		
 		swarm.update(elapsed);
+
 		const Particle* const pParticles = swarm.getParticles();
 		
 		unsigned char red = (1 + sin(elapsed * 0.0001)) * 128;

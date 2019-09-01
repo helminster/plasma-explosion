@@ -6,7 +6,7 @@ namespace ssk {
 	class Swarm
 	{
 	public:
-		const static int NPARTICLES = 5000;
+		const static int NPARTICLES = 7000;
 	private:
 		Particle* m_pParticles;
 		int lastElapsed;

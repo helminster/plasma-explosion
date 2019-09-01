@@ -12,5 +12,6 @@ namespace ssk {
 		Particle();
 		~Particle();
 		void update(int interval);
+		void init();
 	};
 }
