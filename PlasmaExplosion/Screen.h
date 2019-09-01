@@ -13,12 +13,13 @@ namespace ssk {
 		SDL_Renderer* m_renderer;
 		SDL_Texture* m_texture;
 		Uint32* m_buffer;
+		Uint32* m_secondBuffer;
 	public:
 		Screen();
 		bool init();
 		bool processEvents();
 		void setPixel(int x, int y, Uint8 red, Uint8 green, Uint8 blue);
-		void clear();
+		void boxBlur();
 		void update();
 		void close();
 	};

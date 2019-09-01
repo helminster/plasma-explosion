@@ -1,7 +1,7 @@
 #include "Swarm.h"
 
 namespace ssk {
-	Swarm::Swarm()
+	Swarm::Swarm(): lastElapsed(0)
 	{
 		m_pParticles = new Particle[NPARTICLES];
 	}
@@ -11,10 +11,14 @@ namespace ssk {
 		delete[] m_pParticles;
 	}
 
-	void Swarm::update()
+	void Swarm::update(int elapsed)
 	{
+		int interval = elapsed - lastElapsed;
+
 		for (int i = 0; i < NPARTICLES; i++) {
-			m_pParticles[i].update();
+			m_pParticles[i].update(interval);
 		}
+
+		lastElapsed = elapsed;
 	}
 }

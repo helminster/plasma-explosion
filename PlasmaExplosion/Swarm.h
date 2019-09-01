@@ -9,10 +9,11 @@ namespace ssk {
 		const static int NPARTICLES = 5000;
 	private:
 		Particle* m_pParticles;
+		int lastElapsed;
 	public:
 		Swarm();
 		~Swarm();
 		Particle* getParticles() { return m_pParticles; }
-		void update();
+		void update(int elapsed);
 	};
 }
