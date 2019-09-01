@@ -13,5 +13,6 @@ namespace ssk {
 		Swarm();
 		~Swarm();
 		Particle* getParticles() { return m_pParticles; }
+		void update();
 	};
 }

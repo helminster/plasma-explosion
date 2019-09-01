@@ -52,12 +52,6 @@ namespace ssk {
 
 		m_buffer = new Uint32[SCREEN_HEIGHT * SCREEN_WIDTH];
 
-		memset(m_buffer, 0x00, SCREEN_HEIGHT * SCREEN_WIDTH * sizeof(Uint32));
-
-		for (int i = 0; i < SCREEN_HEIGHT * SCREEN_WIDTH; i++) {
-			m_buffer[i] = 0x00;
-		}
-
 		return true;
 	}
 
@@ -90,6 +84,11 @@ namespace ssk {
 		color += 0xFF;
 
 		m_buffer[(y * SCREEN_WIDTH) + x] = color;
+	}
+
+	void Screen::clear()
+	{
+		memset(m_buffer, 0x00, SCREEN_HEIGHT * SCREEN_WIDTH * sizeof(Uint32));
 	}
 
 	void Screen::update()
